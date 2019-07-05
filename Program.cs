@@ -13,11 +13,11 @@ namespace mock_pinball
         // The device connection string to authenticate the device with your IoT hub.
         // Using the Azure CLI:
         // az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
-        private readonly static string connectionString = "HostName=YOUR_IOT_HUB.azure-devices.net;DeviceId=YOUR_DEVICE_ID;SharedAccessKey=YOUR_SAS_KEY";
+        private readonly static string connectionString = "HostName=YOUR_IOT_HUB.azure-devices.net;DeviceId=mockpinball;SharedAccessKey=YOUR_SAS_KEY";
 
         static void Main(string[] args)
         {
-            var playingAsComputer = (args.Length != 0) ? args[0] : "on";
+            var playingAsComputer = (args.Length == 0) ? "on" : args[1] ;
 
             Console.WriteLine("Mock Pinballl IoT Hub Client - Simulated device.");
             Console.WriteLine($"AI will marked as '{playingAsComputer}'. Ctrl-C to exit.");
@@ -52,7 +52,7 @@ namespace mock_pinball
                     // make balldrain 1/3 likely rather than 1/5
                     case 0:
                     case 5:
-                        var ballDrain = new { eventtype = "balldrain", aistate = playingAsComputer, timestamp = DateTime.UtcNow };
+                        var ballDrain = new { eventtype = "gamedata", scortier = 0, aistate = playingAsComputer, timestamp = DateTime.UtcNow };
                         messageContent =  JsonConvert.SerializeObject(ballDrain);                             
                         break;
                     case 1:

@@ -12,11 +12,11 @@ You can run the Pinball simulator as one of two players - AI or human. AI is the
 
 ```
 # Run as AI
-dotnet mock-pinball
+dotnet run .
 
 # Run as AI
-dotnet mock-pinball on
+dotnet run . on
 
 # Run as Human
-dotnet mock-pinball off
+dotnet run . off
 ```
