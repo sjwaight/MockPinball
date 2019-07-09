@@ -52,7 +52,7 @@ namespace mock_pinball
                     // make balldrain 1/3 likely rather than 1/5
                     case 0:
                     case 5:
-                        var ballDrain = new { eventtype = "gamedata", scortier = 0, aistate = playingAsComputer, timestamp = DateTime.UtcNow };
+                        var ballDrain = new { eventtype = "gamedata", scoretier = 0, aistate = playingAsComputer, timestamp = DateTime.UtcNow };
                         messageContent =  JsonConvert.SerializeObject(ballDrain);                             
                         break;
                     case 1:
